@@ -1,0 +1,46 @@
+plugins {
+    id 'com.android.application' version '8.8.0' apply false
+    id 'com.android.library' version '8.8.0' apply false
+    id 'org.jetbrains.kotlin.android' version '2.1.10' apply false
+}
+
+android {
+    namespace = "com.example.jammer" // Your app's namespace
+    compileSdk = flutter.compileSdkVersion // Use the Flutter-defined compileSdkVersion
+
+    ndkVersion = flutter.ndkVersion // Use the Flutter-defined NDK version
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8 // Java 8 compatibility
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8 // Kotlin JVM target
+    }
+
+    defaultConfig {
+        applicationId = "com.example.jammer" // Your app's unique ID
+        minSdk = flutter.minSdkVersion // Use the Flutter-defined minSdkVersion
+        targetSdk = flutter.targetSdkVersion // Use the Flutter-defined targetSdkVersion
+        versionCode = flutter.versionCode // Use the Flutter-defined versionCode
+        versionName = flutter.versionName // Use the Flutter-defined versionName
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // For now, signing with the debug keys so `flutter run --release` works.
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.." // Path to the Flutter source code
+}
+
+dependencies {
+     classpath 'com.android.tools.build:gradle:7.3.1' // Update to the latest version
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+}
